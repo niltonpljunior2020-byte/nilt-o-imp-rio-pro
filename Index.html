@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NILTÃO IMPÉRIO</title>
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
 
 <style>
 body{
   margin:0;
   background: linear-gradient(180deg,#000000,#0a0a0a);
   color:#00ff99;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   padding:20px;
 }
 
@@ -72,9 +69,12 @@ input{
 </head>
 <body>
 
-<h2>🔥 NILTÃO IMPÉRIO PRO</h2>
+<h2>🔥 NILTÃO IMPÉRIO</h2>
 
-<div class="xpbar"><div class="xpfill" id="xpfill"></div></div>
+<div class="xpbar">
+  <div class="xpfill" id="xpfill"></div>
+</div>
+
 <div id="overview"></div>
 
 <div class="section">
@@ -116,10 +116,6 @@ input{
 </div>
 
 <script>
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js');
-}
 
 let data = JSON.parse(localStorage.getItem("imperio")) || {
   level:1,
@@ -206,8 +202,8 @@ function getRank(){
 
 function render(){
   document.getElementById("xpfill").style.width=data.xp+"%";
-  document.getElementById("overview").innerHTML=
-  `Level: ${data.level}<br>XP: ${data.xp}/100`;
+  document.getElementById("overview").innerHTML =
+    "Level: " + data.level + "<br>XP: " + data.xp + "/100";
   document.getElementById("studyHours").innerText=data.studyHours;
   document.getElementById("workouts").innerText=data.workouts;
   document.getElementById("money").innerText=data.money;
@@ -217,6 +213,7 @@ function render(){
 }
 
 render();
+
 </script>
 
 </body>
